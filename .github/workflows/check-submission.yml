@@ -1,0 +1,24 @@
+name: 检查作业
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 获取作业文件
+        uses: actions/checkout@v4
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: 安装检查工具
+        run: npm ci
+      - name: 检查 Markdown 结构和 Mermaid 语法
+        run: npm run check:submission

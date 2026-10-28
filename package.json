@@ -1,0 +1,12 @@
+{
+  "name": "markdown-mermaid-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:submission": "node scripts/check-submission.mjs submission.md"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "mermaid": "11.4.1"
+  }
+}
